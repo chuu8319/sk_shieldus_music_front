@@ -9,6 +9,7 @@ const Home = () => {
         <Header />
         <div className="container">
             <h2>패트와 매트의 음악 보관함</h2>
+            <hr/>
             <LoginContextConsumer />
         </div>
     </>

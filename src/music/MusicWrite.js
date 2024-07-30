@@ -3,6 +3,7 @@ import { useState, useRef,useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Swal from '../apis/alert';
 import { LoginContext } from "../contexts/LoginContextProvider";
+import Cookies from 'js-cookie';
 
 export default function MusicWrite() {
     const [title, setTitle] = useState('');
@@ -42,6 +43,9 @@ export default function MusicWrite() {
 
     const navigate = useNavigate();
 
+    const token = Cookies.get("accessToken");
+    console.log(token);
+
     const handlerSubmit = e => {
         e.preventDefault();
         
@@ -60,11 +64,11 @@ export default function MusicWrite() {
         // 설정한 데이터를 JSON 형식으로 서버로 전달
         axios({
             method: 'POST', 
-            url: 'http://localhost:8080/api/music/write', 
+            url: '/api/music/write', 
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
-                'Authorization': `Bearer YOUR_ACCESS_TOKEN` // 필요시 인증 토큰 추가
+                'Authorization': `Bearer ${token}`
             }
         })
         .then(res => {
@@ -108,6 +112,7 @@ export default function MusicWrite() {
                     </tbody>
                 </table>
                 <input ref={refFiles} onChange={handlerChangeFiles} type="file" id="files" name="files" multiple="multiple" />
+                <div/>
                 <input type="submit" id="submit" value="저장" className="btn" />
             </form>
         </div>

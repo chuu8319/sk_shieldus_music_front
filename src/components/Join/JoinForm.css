@@ -38,7 +38,7 @@
 }
 
 .btn--form {
-    background-color: #f48982;
+    background-color: #3f3d3d;
     color: #fdf2e9;
     align-self: end;
     padding: 8px;
@@ -61,10 +61,10 @@
 }
 
 .btn-login:hover {
-    outline: 1px solid #f48982;
+    outline: 1px solid #3f3d3d;
 }
 
 .btn--form:hover {
     background-color: #fdf2e9;
-    color: #f48982;
+    color: #3f3d3d;
 }
