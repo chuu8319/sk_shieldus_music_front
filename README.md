@@ -15,3 +15,5 @@
 `npm install sweetalert2-react-content`
 
 `npm install react-icons`
+
+`npm start`
